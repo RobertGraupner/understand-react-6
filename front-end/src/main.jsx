@@ -8,10 +8,13 @@ const router = createBrowserRouter([
 	{
 		element: <App />,
 		path: '/',
-	},
-	{
-		path: '/notes',
-		element: <NotesList />,
+		children: [
+			{
+				// sparametryzowana ścieżka, która oczekuje parametru o nazwie folderId. Dzieki temu, że jest to ścieżka zagnieżdżona w ścieżce /notes, to oznacza, że parametr folderId będzie dostępny w komponencie NotesList
+				path: '/notes/:folderId',
+				element: <NotesList />,
+			},
+		],
 	},
 ]);
 

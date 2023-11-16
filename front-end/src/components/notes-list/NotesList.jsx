@@ -5,6 +5,7 @@ import { AddNewButton } from '../add-new-button/AddNewButton';
 import { TopBar } from '../top-bar/TopBar';
 import { ShortNote } from '../short-note/ShortNote';
 import { Note } from '../note/Note';
+import { useParams } from 'react-router-dom';
 
 const NotesContainer = ({ children }) => (
 	<div className={styles['notes-container']}>{children}</div>
@@ -55,8 +56,8 @@ export function NotesList() {
 			id: 17,
 		},
 	]);
-
-	const folderId = 2;
+	// useParams() zwraca obiekt, który zawiera wszystkie parametry ścieżki. Parametry są dostępne pod nazwami odpowiadającymi ich nazwom w ścieżce, czyli w tym przypadku folderId
+	const { folderId } = useParams();
 
 	return (
 		<NotesContainer>
@@ -68,7 +69,7 @@ export function NotesList() {
 				</TopBar>
 
 				{notes
-					.filter((note) => note.folderId === folderId)
+					.filter((note) => note.folderId === Number(folderId))
 					.map((note, idx) => (
 						<ShortNote role='listitem' key={idx} note={note}></ShortNote>
 					))}
