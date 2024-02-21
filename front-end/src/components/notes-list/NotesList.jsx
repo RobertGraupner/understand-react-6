@@ -20,7 +20,7 @@ const Notes = ({ children }) => (
 		{children}
 	</div>
 );
-
+// funkcja createNote będzie wywoływana, gdy użytkownik utworzy nową notatkę. W tym celu musimy przekazać ją jako parametr do ścieżki /notes/:folderId w pliku front-end/src/main.jsx. W funkcji createNote pobieramy dane z formularza i wysyłamy je do serwera.
 export function createNote({ params }) {
 	return fetch(`http://localhost:3000/notes`, {
 		method: 'POST',

@@ -12,6 +12,7 @@ import { NotFound } from './components/not-found/NotFound';
 
 const router = createBrowserRouter([
 	{
+		// Element to komponent, który ma być wyrenderowany, gdy ścieżka pasuje do aktualnego URL. W tym przypadku, gdy ścieżka pasuje do /, to wyrenderowany zostanie komponent App
 		element: <App />,
 		path: '/',
 		errorElement: <NotFound />,
